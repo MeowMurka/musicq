@@ -1,4 +1,3 @@
-<script>
 // ========= БАЗОВЫЙ URL ДЛЯ API =========
 // Берём из config.js (window.API_BASE). Если его вдруг нет — используем текущий origin.
 // На Render у тебя в config.js прописано: window.API_BASE = "https://musicq.onrender.com";
@@ -211,5 +210,4 @@ document.getElementById('uploadForm')?.addEventListener('submit', upload);
 setInterval(refreshState, 5000);
 
 // Перемотку лучше не трогать — она нужна для корректной работы Range-запросов
-</script>
 
