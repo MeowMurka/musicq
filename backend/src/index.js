@@ -233,6 +233,25 @@ app.get('/api/stream', async (req, res) => {
   }
 });
 
+// Admin skip (защита простым токеном из env)
+app.post('/api/admin/skip', async (req, res) => {
+  const token = req.headers['x-skip-token'] || req.query.token;
+  if (!process.env.SKIP_TOKEN || token !== process.env.SKIP_TOKEN) {
+    return res.status(403).json({ error: 'Forbidden' });
+  }
+  try {
+    if (currentTimer) {
+      clearTimeout(currentTimer);
+      currentTimer = null;
+    }
+    await advanceQueue();
+    res.json({ ok: true });
+  } catch (e) {
+    logger.error({ e }, 'admin skip failed');
+    res.status(500).json({ error: 'skip failed' });
+  }
+});
+
 // API: delete queued track (owner only)
 app.delete('/api/queue/:id', async (req, res) => {
   const { id } = req.params;
