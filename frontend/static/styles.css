@@ -1,0 +1,15 @@
+* { box-sizing: border-box; }
+body { font-family: system-ui, Arial, sans-serif; margin: 0; background: #0f172a; color: #e2e8f0; }
+.container { max-width: 880px; margin: 0 auto; padding: 24px; }
+h1 { margin-top: 0; }
+section { background: #111827; padding: 16px; margin-bottom: 16px; border-radius: 12px; border: 1px solid #1f2937; }
+.auth input { padding: 8px; margin-right: 8px; }
+button { padding: 8px 12px; background: #2563eb; color: white; border: none; border-radius: 8px; cursor: pointer; }
+button:hover { background: #1d4ed8; }
+audio { width: 100%; }
+.hint { color: #94a3b8; font-size: 14px; margin-top: 6px; }
+#queue li { display: flex; justify-content: space-between; align-items: center; padding: 8px; border-bottom: 1px dashed #374151; }
+#queue li:last-child { border-bottom: none; }
+#queue .meta { color: #94a3b8; font-size: 14px; }
+#uploadForm input { margin-right: 8px; }
+#current .title { font-weight: 600; }

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Single-Slot Music Queue</title>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+  <div class="container">
+    <h1>🎵 Single-Slot Music Queue</h1>
+    <section class="auth">
+      <input id="username" placeholder="Введите имя пользователя"/>
+      <button id="loginBtn">Войти</button>
+      <span id="hello"></span>
+    </section>
+
+    <section class="player">
+      <audio id="player" controls autoplay muted preload="none"></audio>
+      <div class="hint">Тут вы можете только включить/выключить звук и регулировать громкость. Перемотка недоступна.</div>
+    </section>
+
+    <section class="upload">
+      <h2>Импорт музыки</h2>
+      <form id="uploadForm">
+        <input type="text" id="title" placeholder="Название трека (необязательно)"/>
+        <input type="file" id="fileInput" accept="audio/*"/>
+        <button type="submit">Загрузить</button>
+      </form>
+      <div id="uploadMsg"></div>
+    </section>
+
+    <section class="state">
+      <h2>Сейчас играет</h2>
+      <div id="current"></div>
+
+      <h2>Очередь</h2>
+      <ul id="queue"></ul>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

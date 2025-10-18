@@ -1,0 +1,35 @@
+# --- Node / backend ---
+backend/node_modules/
+backend/.env
+backend/npm-debug.log*
+backend/yarn-error.log*
+backend/.DS_Store
+
+# Prisma artifacts (генерятся)
+backend/node_modules/@prisma/
+
+# --- Frontend static site ---
+frontend/static/*.map
+frontend/.DS_Store
+
+# --- Audio data and runtime data ---
+**/data/
+**/current/
+**/queue/
+audio/
+tmp/
+*.uploading
+
+# --- Docker ---
+*.log
+docker-compose.override.yml
+.env
+.env.*
+!.env.example
+
+# --- OS / Editors ---
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+

@@ -1,0 +1,43 @@
+version: "3.9"
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: musicq_db
+    environment:
+      POSTGRES_USER: musicq
+      POSTGRES_PASSWORD: musicq
+      POSTGRES_DB: musicq
+    ports:
+      - "5432:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+
+  api:
+    build: ./backend
+    container_name: musicq_api
+    depends_on:
+      - db
+    environment:
+      DATABASE_URL: postgresql://musicq:musicq@db:5432/musicq?schema=public
+      PORT: "8080"
+      NODE_ENV: production
+    ports:
+      - "8080:8080"
+    volumes:
+      - audio_data:/app/data
+    restart: unless-stopped
+
+  web:
+    build: ./frontend
+    container_name: musicq_web
+    depends_on:
+      - api
+    environment:
+      API_BASE_URL: http://api:8080
+    ports:
+      - "3000:80"
+    restart: unless-stopped
+
+volumes:
+  db_data:
+  audio_data:
